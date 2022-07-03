@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ColorList } from "../cmps/ColorApp/ColorList";
-import { loadColors } from "../store/color.actions";
+import { socketService } from "../services/socket.service";
+import { loadColors, updateColor } from "../store/color.actions";
+import { showMsg } from "../store/system.actions";
 
 export function ColorApp() {
 
@@ -10,7 +12,18 @@ export function ColorApp() {
 
    useEffect(() => {
       dispatch(loadColors())
+
+      socketService.on('vote added', alertaddedVote)
+
+      return () => {
+         socketService.off('vote added', alertaddedVote)
+      }
    }, [])
+
+   const alertaddedVote = (color) => {
+      dispatch(updateColor(color))
+      dispatch(showMsg('success', `new vote added for ${color.name}`))
+   }
 
    return <main className="color-app">
       <section className="instructions main-layout">

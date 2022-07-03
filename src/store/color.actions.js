@@ -20,36 +20,8 @@ export function addVote(colorId) {
         try {
             const color = await colorService.addVote(colorId)
             dispatch({
-                type: 'UPDATE_COLOR',
+                type: 'UPDATE_COLOR_VOTES',
                 color: color
-            })
-        } catch (err) {
-            console.log('Cannot add color', err)
-        }
-    }
-}
-
-export function removeColor(colorId) {
-    return async (dispatch) => {
-        try {
-            await colorService.remove(colorId)
-            dispatch({
-                type: 'REMOVE_COLOR',
-                colorId
-            })
-        } catch (err) {
-            console.log('Cannot remove color', err)
-        }
-    }
-}
-
-export function addColor(color) {
-    return async (dispatch) => {
-        try {
-            const savedColor = colorService.save(color)
-            dispatch({
-                type: 'ADD_COLOR',
-                color: savedColor
             })
         } catch (err) {
             console.log('Cannot add color', err)
@@ -60,10 +32,9 @@ export function addColor(color) {
 export function updateColor(color) {
     return async (dispatch) => {
         try {
-            const savedColor = colorService.save(color)
             dispatch({
                 type: 'UPDATE_COLOR',
-                color: savedColor
+                color
             })
         } catch (err) {
             console.log('Cannot save color', err)
