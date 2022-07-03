@@ -1,9 +1,3 @@
-@mixin from-mini-layout {
-  @media (min-width: $mini-breakpoint) {
-    @content;
-  }
-}
-
 @mixin from-mobile-layout {
   @media (min-width: $mobile-breakpoint) {
     @content;

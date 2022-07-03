@@ -5,18 +5,18 @@
 
    .logo-container {
       display: flex;
-      // gap: 2px;
+      gap: 8px;
       align-items: center;
 
       .logo {
          width: 30px;
-         transform: translateX(-6px);
       }
 
       span {
-         font-size: rem(20px);
+         font-family: gulzar, sans-serif;
+         font-size: 1.4rem;
          font-weight: 600;
-         color: #008000;
+         color: $main-orange;
       }
    }
 

@@ -12,9 +12,15 @@ export function ColorApp() {
       dispatch(loadColors())
    }, [])
 
-   return <main className="color-app main-layout">
-      <div>
-         <ColorList colors={colors} />
+   return <main className="color-app">
+      <section className="instructions main-layout">
+         <p>Hey color hunter, click on your favorite color to vote.</p>
+      </section>
+      <div className="main-layout">
+
+         <section>
+            <ColorList colors={colors} />
+         </section>
       </div>
    </main>
 }

@@ -1,6 +1,12 @@
 .color-list {
    display: grid;
    grid-template-columns: repeat(auto-fit, 300px);
+   justify-content: center;
    grid-auto-rows: 300px;
    gap: 20px;
+
+   @include from-mobile-layout {
+      grid-template-columns: repeat(auto-fit, 300px);
+      justify-content: unset;
+   }
 }

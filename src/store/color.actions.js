@@ -4,7 +4,6 @@ export function loadColors() {
     return async (dispatch) => {
         try {
             const colors = await colorService.query()
-            console.log(colors);
             dispatch({
                 type: 'SET_COLORS',
                 colors

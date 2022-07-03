@@ -12,9 +12,17 @@
     // max-height: 900px;
     // margin: auto;
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 16px 1fr 16px;
 
     &>* {
         grid-column: 2;
+    }
+
+    @include from-mobile-layout {
+        grid-template-columns: 50px 1fr 50px;
+    }
+
+    @include from-narrow-layout {
+        grid-template-columns: 100px 1fr 100px;
     }
 }

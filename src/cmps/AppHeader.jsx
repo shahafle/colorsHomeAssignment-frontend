@@ -1,4 +1,4 @@
-import logo from '../assets/imgs/check.png';
+import logo from '../assets/imgs/pallete.ico';
 import { Link, NavLink } from 'react-router-dom';
 
 
@@ -7,13 +7,13 @@ export function AppHeader() {
       <div className='app-header'>
          <Link className='logo-container' to='/'>
             <img src={logo} className="logo" alt="logo" />
-            <span>ColorMania</span>
+            <span>Color Mania</span>
          </Link>
 
-         <nav>
+         {/* <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
-         </nav>
+         </nav> */}
       </div>
    </header>
 }

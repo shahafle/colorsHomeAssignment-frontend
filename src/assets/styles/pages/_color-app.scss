@@ -1,0 +1,17 @@
+.color-app {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+
+   .instructions {
+      background-color: $main-orange;
+      padding-block: 20px;
+
+      color: #f9f9f9;
+
+      p {
+         font-family: gulzar, sans-serif;
+         font-size: 1.2rem;
+      }
+   }
+}
