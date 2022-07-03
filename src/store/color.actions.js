@@ -20,7 +20,7 @@ export function addVote(colorId) {
         try {
             const color = await colorService.addVote(colorId)
             dispatch({
-                type: 'UPDATE_COLOR_VOTES',
+                type: 'UPDATE_COLOR',
                 color: color
             })
         } catch (err) {

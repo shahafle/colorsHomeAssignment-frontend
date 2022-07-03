@@ -6,14 +6,8 @@ export function Alert() {
    const [isOpen, setIsOpen] = useState(false)
 
    let timeoutId = useRef('')
-   let isFirstRender = useRef(true)
 
    useEffect(() => {
-      if (isFirstRender.current) {
-         isFirstRender.current = false
-         return
-      }
-
       if (timeoutId.current) clearTimeout(timeoutId.current)
       setIsOpen(true)
 

@@ -10,10 +10,10 @@ export function AppHeader() {
             <span>Color Mania</span>
          </Link>
 
-         {/* <nav>
+         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
-         </nav> */}
+         </nav>
       </div>
    </header>
 }

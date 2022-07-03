@@ -9,15 +9,3 @@
     @content;
   }
 }
-
-@mixin from-normal-layout {
-  @media (min-width: $normal-breakpoint) {
-    @content;
-  }
-}
-
-@mixin from-wide-layout {
-  @media (min-width: $wide-breakpoint) {
-    @content;
-  }
-}
