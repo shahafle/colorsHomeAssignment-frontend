@@ -7,7 +7,7 @@ export function AppHeader() {
       <div className='app-header'>
          <Link className='logo-container' to='/'>
             <img src={logo} className="logo" alt="logo" />
-            <span>Do-it.</span>
+            <span>ColorMania</span>
          </Link>
 
          <nav>

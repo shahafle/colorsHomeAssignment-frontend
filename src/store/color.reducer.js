@@ -39,15 +39,16 @@ export function colorReducer(state = initialState, action) {
          newState = { ...state, colors: action.colors }
          break
       case 'REMOVE_COLOR':
-         const lastRemovedColor = state.colors.find(color => color._id === action.colorId)
-         colors = state.colors.filter(color => color._id !== action.colorId)
+         const lastRemovedColor = state.colors.find(color => color.id === action.colorId)
+         colors = state.colors.filter(color => color.id !== action.colorId)
          newState = { ...state, colors: colors, lastRemovedColor }
          break
       case 'ADD_COLOR':
          newState = { ...state, colors: [...state.colors, action.color] }
          break
       case 'UPDATE_COLOR':
-         colors = state.colors.map(color => (color._id === action.color._id) ? action.color : color)
+         colors = state.colors.map(color => (color.id === action.color.id) ? action.color : color)
+         console.log('colors', colors);
          newState = { ...state, colors: colors }
          break
       case 'UNDO_REMOVE_COLOR':

@@ -14,7 +14,6 @@ export function ColorApp() {
 
    return <main className="color-app main-layout">
       <div>
-         <h1>App</h1>
          <ColorList colors={colors} />
       </div>
    </main>

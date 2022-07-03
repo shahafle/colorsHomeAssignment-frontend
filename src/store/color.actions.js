@@ -16,6 +16,20 @@ export function loadColors() {
     }
 }
 
+export function addVote(colorId) {
+    return async (dispatch) => {
+        try {
+            const color = await colorService.addVote(colorId)
+            dispatch({
+                type: 'UPDATE_COLOR',
+                color: color
+            })
+        } catch (err) {
+            console.log('Cannot add color', err)
+        }
+    }
+}
+
 export function removeColor(colorId) {
     return async (dispatch) => {
         try {
@@ -52,18 +66,6 @@ export function updateColor(color) {
                 type: 'UPDATE_COLOR',
                 color: savedColor
             })
-        } catch (err) {
-            console.log('Cannot save color', err)
-        }
-    }
-}
-
-export function getMaxVotes() {
-    return async (dispatch, getState) => {
-        try {
-            const { colors } = getState().colorModule
-            const maxVotes = Math.max(...colors.map(color => color.votes))
-            return maxVotes
         } catch (err) {
             console.log('Cannot save color', err)
         }

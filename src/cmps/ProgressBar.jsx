@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from 'react-redux'
-import { getMaxVotes } from "../store/color.actions"
+import { useSelector } from 'react-redux'
 
 export function ProgressBar({ votes = 0 }) {
 
    const [maxVotes, setMaxVotes] = useState(0)
-
-   const dispatch = useDispatch()
+   const { colors } = useSelector(state => state.colorModule)
 
    useEffect(() => {
-      loadMaxVotes()
-   }, [])
-
-   const loadMaxVotes = async () => {
-      const max = await dispatch(getMaxVotes())
+      const max = Math.max(...colors.map(color => color.votes))
       setMaxVotes(max)
-   }
+   }, [colors])
+
 
    return <div className="progress-bar-wrapper">
       <div className="container">

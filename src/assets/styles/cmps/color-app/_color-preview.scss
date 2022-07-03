@@ -1,4 +1,29 @@
 .color-preview {
    position: relative;
    border-radius: 8px;
+   padding: 6px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   cursor: pointer;
+
+   .preview-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: rgba(255, 255, 255, 0.479);
+      border-radius: 8px;
+      padding: 4px;
+   }
+
+   p {
+      color: white;
+      font-size: 2rem;
+      filter: invert(1) grayscale(1) contrast(9);
+
+      &::first-letter {
+         text-transform: capitalize;
+      }
+   }
+
 }

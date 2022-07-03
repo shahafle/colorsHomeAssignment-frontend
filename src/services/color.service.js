@@ -1,5 +1,3 @@
-
-import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'color'
@@ -11,33 +9,32 @@ export const colorService = {
    save,
    remove,
    getEmptyColor,
+   addVote
 }
-//AWAIT???????????????????????????????????????????
+
 async function query() {
-   // return storageService.query(STORAGE_KEY)
    return await httpService.get(`${ROUTE}`)
 }
 
-function getById(colorId) {
-   return storageService.get(STORAGE_KEY, colorId)
-   // return httpService.get(`${ROUTE}/${colorId}`)
+async function getById(colorId) {
+   return await httpService.get(`${ROUTE}/${colorId}`)
 }
 
 async function remove(colorId) {
-   await storageService.remove(STORAGE_KEY, colorId)
-   // return httpService.delete(`${ROUTE}/${colorId}`)
+   return httpService.delete(`${ROUTE}/${colorId}`)
 }
 
 async function save(color) {
    let savedColor
    if (color._id) {
-      savedColor = await storageService.put(STORAGE_KEY, color)
-      // savedColor = await httpService.put(ROUTE,color)
+      savedColor = await httpService.put(ROUTE, color)
    } else {
-      savedColor = await storageService.post(STORAGE_KEY, color)
-      // savedColor = await httpService.post(ROUTE,color)
+      savedColor = await httpService.post(ROUTE, color)
    }
    return savedColor
+}
+async function addVote(colorId) {
+   return await httpService.post(`${ROUTE}/${colorId}`)
 }
 
 function getEmptyColor() {
